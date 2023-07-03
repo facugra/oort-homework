@@ -93,6 +93,7 @@ const Dashboard = () => {
     setPage(newPage);
   };
   const handlePageSizeChange = (newPageSize: number) => {
+    setPage(1);
     setPageSize(newPageSize);
   };
 
