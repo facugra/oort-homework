@@ -95,7 +95,7 @@ const Dashboard = () => {
     try {
       setLoading(true);
       const result = await axios.post<{ list: Instance[]; count: number }>(
-        "https://7jryyi7bgepdizq76mmqzvoqiu0qeljy.lambda-url.us-east-1.on.aws/",
+        import.meta.env.VITE_INSTANCES_ENDPOINT,
         filters,
         {
           headers: {

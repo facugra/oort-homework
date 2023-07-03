@@ -29,7 +29,7 @@ const App = () => {
     password: string;
   }) => {
     const response = await axios.post(
-      "https://tfbchkmjafx5j7pcx32sl3qa7i0lsnll.lambda-url.us-east-1.on.aws/",
+      import.meta.env.VITE_LOGIN_ENDPOINT,
       {
         email,
         password,
