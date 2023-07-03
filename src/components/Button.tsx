@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 type Props = {
-  feel?: "positive" | "negative";
+  feel?: "positive" | "negative" | "neutral";
 };
 
 const Button = styled.button<Props>`
@@ -11,6 +11,8 @@ const Button = styled.button<Props>`
       ? "#78d18d"
       : feel === "negative"
       ? "#f3969a"
+      : feel === "neutral"
+      ? "#FFA67A"
       : "#cccccc"};
   color: #ffffff;
   border: none;
@@ -25,6 +27,8 @@ const Button = styled.button<Props>`
         ? "#63b878"
         : feel === "negative"
         ? "#f1687a"
+        : feel === "neutral"
+        ? "#FF8C00"
         : "#b3b3b3"};
   }
 `;

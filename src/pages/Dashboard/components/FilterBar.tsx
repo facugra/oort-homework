@@ -14,7 +14,7 @@ const FilterBarContainer = styled.div`
 `;
 
 const FilterButton = styled(Button)<{
-  feel: "positive" | "negative" | undefined;
+  feel: "positive" | "negative" | "neutral" | undefined;
   sortDirection: "asc" | "desc";
 }>`
   position: relative;
@@ -55,7 +55,7 @@ const FilterBar = ({ instances, sortBy, sortDirection, onSortBy }: Props) => {
           <FilterButton
             key={key}
             onClick={() => onSortBy(key)}
-            feel={sortBy === key ? "positive" : undefined}
+            feel={sortBy === key ? "neutral" : undefined}
             sortDirection={sortDirection}
           >
             {getPrettyPropName(key)}

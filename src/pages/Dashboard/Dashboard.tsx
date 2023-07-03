@@ -8,6 +8,16 @@ import FilterBar from "./components/FilterBar";
 import InstanceCard from "./components/InstanceCard";
 import Pagination from "./components/Pagination";
 
+const HeaderContainer = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 0 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+`;
+
 const DashboardContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -115,36 +125,40 @@ const Dashboard = () => {
   };
 
   return (
-    <DashboardContainer>
-      <Title>Dashboard</Title>
-      <Button feel="negative" onClick={handleLogout}>
-        Logout
-      </Button>
-      <FilterBar
-        instances={instances}
-        sortBy={sortBy}
-        sortDirection={sortDirection}
-        onSortBy={handleSortBy}
-      />
-      {loading ? (
-        <SpinnerContainer>
-          <Spinner />
-        </SpinnerContainer>
-      ) : (
-        <CardsContainer>
-          {instances.map((instance) => (
-            <InstanceCard key={instance.InstanceId} instance={instance} />
-          ))}
-        </CardsContainer>
-      )}
-      <Pagination
-        totalItems={totalItems}
-        pageSize={pageSize}
-        currentPage={page}
-        onPageChange={handlePageChange}
-        onPageSizeChange={handlePageSizeChange}
-      />
-    </DashboardContainer>
+    <>
+      <HeaderContainer>
+        <Title>Dashboard</Title>
+        <Button feel="negative" onClick={handleLogout}>
+          Logout
+        </Button>
+      </HeaderContainer>
+      <DashboardContainer>
+        <FilterBar
+          instances={instances}
+          sortBy={sortBy}
+          sortDirection={sortDirection}
+          onSortBy={handleSortBy}
+        />
+        {loading ? (
+          <SpinnerContainer>
+            <Spinner />
+          </SpinnerContainer>
+        ) : (
+          <CardsContainer>
+            {instances.map((instance) => (
+              <InstanceCard key={instance.InstanceId} instance={instance} />
+            ))}
+          </CardsContainer>
+        )}
+        <Pagination
+          totalItems={totalItems}
+          pageSize={pageSize}
+          currentPage={page}
+          onPageChange={handlePageChange}
+          onPageSizeChange={handlePageSizeChange}
+        />
+      </DashboardContainer>
+    </>
   );
 };
 
