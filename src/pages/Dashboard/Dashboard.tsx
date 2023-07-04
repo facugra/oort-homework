@@ -146,9 +146,13 @@ const Dashboard = () => {
           </SpinnerContainer>
         ) : (
           <CardsContainer>
-            {instances.map((instance) => (
-              <InstanceCard key={instance.InstanceId} instance={instance} />
-            ))}
+            {instances.length ? (
+              instances.map((instance) => (
+                <InstanceCard key={instance.InstanceId} instance={instance} />
+              ))
+            ) : (
+              <h3>No instances found.</h3>
+            )}
           </CardsContainer>
         )}
         <Pagination

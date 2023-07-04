@@ -46,12 +46,22 @@ interface Props {
   onSortBy: (property: string) => void;
 }
 
+const instanceKeys = [
+  "InstanceId",
+  "Name",
+  "InstanceType",
+  "State",
+  "AvailabilityZone",
+  "PublicIpAddress",
+  "PrivateIpAddress",
+];
+
 const FilterBar = ({ instances, sortBy, sortDirection, onSortBy }: Props) => {
   return (
     <FilterBarContainer>
       <span>Sort By:</span>
       {instances[0] &&
-        Object.keys(instances[0]).map((key) => (
+        instanceKeys.map((key) => (
           <FilterButton
             key={key}
             onClick={() => onSortBy(key)}
