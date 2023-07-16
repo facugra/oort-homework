@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Button from "../../../components/Button";
-import { Instance } from "../../../types/Instance";
-import getPrettyPropName from "../../../utils/getPrettyPropNames";
+import Button from "../../../../components/Button";
+import { Instance } from "../../../../types/Instance";
+import getPrettyPropName from "../../../../utils/getPrettyPropNames";
 
 const FilterBarContainer = styled.div`
   margin-top: 15px;
@@ -58,11 +58,12 @@ const instanceKeys = [
 
 const FilterBar = ({ instances, sortBy, sortDirection, onSortBy }: Props) => {
   return (
-    <FilterBarContainer>
+    <FilterBarContainer data-testid="filterBar">
       <span>Sort By:</span>
       {instances[0] &&
         instanceKeys.map((key) => (
           <FilterButton
+            data-testid={`filterButton`}
             key={key}
             onClick={() => onSortBy(key)}
             feel={sortBy === key ? "neutral" : undefined}

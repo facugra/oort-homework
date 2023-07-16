@@ -76,6 +76,7 @@ const Pagination = ({
     for (let page = 1; page <= totalPages; page++) {
       buttons.push(
         <PaginationButton
+          data-testid={`paginationPage${page}Button`}
           key={page}
           isActive={currentPage === page}
           onClick={() => handlePageClick(page)}
@@ -89,8 +90,9 @@ const Pagination = ({
   };
 
   return (
-    <PaginationContainer>
+    <PaginationContainer data-testid="paginationContainer">
       <PaginationButton
+        data-testid="paginationPrevButton"
         onClick={() => handlePageClick(currentPage - 1)}
         disabled={currentPage === 1}
       >
@@ -98,13 +100,18 @@ const Pagination = ({
       </PaginationButton>
       {renderPageButtons()}
       <PaginationButton
+        data-testid="paginationNextButton"
         onClick={() => handlePageClick(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
         Next
       </PaginationButton>
       <span>Items per page:</span>
-      <PaginationSelect value={pageSize} onChange={handlePageSizeChange}>
+      <PaginationSelect
+        value={pageSize}
+        onChange={handlePageSizeChange}
+        data-testid="paginationSelect"
+      >
         <option value={10}>10</option>
         <option value={20}>20</option>
         <option value={50}>50</option>

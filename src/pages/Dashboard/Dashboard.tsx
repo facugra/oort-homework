@@ -4,9 +4,9 @@ import styled from "styled-components";
 import Button from "../../components/Button";
 import { useAuth } from "../../hooks/useAuth";
 import { Instance } from "../../types/Instance";
-import FilterBar from "./components/FilterBar";
-import InstanceCard from "./components/InstanceCard";
-import Pagination from "./components/Pagination";
+import FilterBar from "./components/FilterBar/FilterBar";
+import InstanceCard from "./components/InstanceCard/InstanceCard";
+import Pagination from "./components/Pagination/Pagination";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -142,7 +142,7 @@ const Dashboard = () => {
         />
         {loading ? (
           <SpinnerContainer>
-            <Spinner />
+            <Spinner data-testid="loader" />
           </SpinnerContainer>
         ) : (
           <CardsContainer>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Badge from "../../../components/Badge";
-import GenericCard from "../../../components/Card";
-import { Instance } from "../../../types/Instance";
+import Badge from "../../../../components/Badge";
+import GenericCard from "../../../../components/Card";
+import { Instance } from "../../../../types/Instance";
 
 const CardTitle = styled.h3`
   font-size: 18px;
@@ -39,7 +39,7 @@ const InstanceCard = ({ instance }: Props) => {
   return (
     <Card>
       <span>
-        <CardTitle>{instance.Name}</CardTitle>
+        <CardTitle data-testid="instanceName">{instance.Name}</CardTitle>
         <CardSubtitle>ID: {instance.InstanceId}</CardSubtitle>
       </span>
       <TypeBadge>Type: {instance.InstanceType}</TypeBadge>
